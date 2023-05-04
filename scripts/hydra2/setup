@@ -1,0 +1,24 @@
+#!/bin/bash -e
+
+HYDRA_DEBUG=${HYDRA_DEBUG:-false}
+
+if [[ ${HYDRA_DEBUG} != false ]]; then
+    set -x
+fi
+
+if [[ -z ${BOOTSTRAP_CONTEXT} ]]; then
+    echo "BOOTSTRAP_CONTEXT is required" >&2
+    exit 1;
+fi
+
+HYDRA_NAMESPACE=${HYDRA_NAMESPACE:-user}
+
+function helm() {
+    (command helm --kube-context ${BOOTSTRAP_CONTEXT} --namespace ${HYDRA_NAMESPACE} "$@")
+}
+
+function kubectl() {
+    (command kubectl --context ${BOOTSTRAP_CONTEXT} --namespace ${HYDRA_NAMESPACE} "$@")
+}
+
+deployment_path="k8s/base"
