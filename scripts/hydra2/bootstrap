@@ -23,7 +23,7 @@ if [[ $exit_code != 0 ]]; then
         install_flags="--debug"
     fi
 
-    dsn="postgres://hydra@postgres.${HYDRA_NAMESPACE}/hydra2?sslmode=disable"
+    dsn="postgres://hydra2@postgres.${HYDRA_NAMESPACE}/hydra2?sslmode=disable"
 
     echo "Installing ory/hydra helm chart"
     helm upgrade --install hydra2 ory/hydra \
