@@ -1,0 +1,20 @@
+hydra:
+  automigration:
+    enabled: true
+    type: initContainer
+  dangerousForceHttp: true
+  dev: true
+  config:
+    serve:
+      public:
+        cors:
+          enabled: true
+    urls:
+      self:
+        issuer: http://localhost:2444/
+      login: http://localhost:8002/login
+      consent: http://localhost:8002/consent
+      logout: http://localhost:8002/logout
+    secrets:
+      system:
+        - deadbeefdeadbeef
