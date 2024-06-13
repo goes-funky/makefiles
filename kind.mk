@@ -5,12 +5,12 @@ _kind_mk_path := $(dir $(lastword $(MAKEFILE_LIST)))
 include makefiles/shared.mk
 include makefiles/kubectl.mk
 
-KIND_VERSION ?= v0.11.1
+KIND_VERSION ?= v0.12.0
 KIND_ROOT := $(BUILD)/kind-$(KIND_VERSION)
 KIND := $(KIND_ROOT)/kind
 
 KIND_CLUSTER_NAME ?= local
-KIND_K8S_VERSION ?= v1.21.1
+KIND_K8S_VERSION ?= v1.22.7
 KIND_HOST_PORT ?= 80
 
 BOOTSTRAP_CONTEXT := kind-$(KIND_CLUSTER_NAME)
