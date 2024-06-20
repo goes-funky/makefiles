@@ -2,6 +2,10 @@ hydra:
   autoMigrate: true
   dangerousForceHttp: true
   config:
+    serve:
+      public:
+        cors:
+          enabled: true
     urls:
       self:
         issuer: http://issuer.local.y42.dev
